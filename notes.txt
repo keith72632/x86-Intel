@@ -1,0 +1,14 @@
+x86 Intel Assembly Language
+
+Registers
+	-scratch pad or "working memory". Load data in temporarily
+	-general purpose and special registers
+	-Registers have fixed width. usually 32 bits or 64 bits
+	-registers have subsets, which means 32bit can run on 64bit
+Stack
+	-LIFO Last In First Out
+	-pushing puts on top, pop takes off top
+	-this is accomplished by moving stack pointer which is has RAM
+Tools
+	-assembler with nasm
+	-

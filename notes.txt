@@ -12,3 +12,60 @@ Stack
 Tools
 	-assembler with nasm
 	-
+Commands
+	-first two lines entry point
+	-global makes file available to linker
+	-int= transfers process control to interrupt handler
+		-the type of system call depends on eax register
+		-eax 1 means system exit call
+		-ebx stores exit status 
+	-sub= subtractions
+Command Line
+	-assemble= nasm -f elf32 ex1.asm -o ex1.o
+	-link= ld -m elf_i386 ex1.0 ex1
+Operands
+	-
+*0x0a is hex for the \n character
+*equ is like = but immutable
+
+Jump Instructions
+	-intrauction poiter = EIP
+		-location of exectution. Jump around to different points in code
+	-ip is changed by jump instruction
+	-jump <label>
+	-jl <label> if flag after cmp set to less than
+	-je= jump if equal
+	-jne= jump not equal
+Loops
+	-dec= decrement
+Memory Access
+
+Keywords
+	-db = byte
+	-dw = two bytes
+	-dd = 4 byte 'word'
+The Stack
+	-LIFO
+	-push puts 'on top'
+	-pop takes from top
+	-the stack is just an array
+	-ESP is stack pointer
+	-stack pointer starts at high address and moves down with pushes
+	-when pushed, ESP decreased by 4
+	-sub 4 from esp will move stack pointer one address
+		-or mov [esp], dword 357
+		-dword tells nasm four bytes
+	-pop <register> will move value where stack pointer is into register, then move esp 
+	by 4 bytes
+	-do same thing as pop by:
+		-mov eax, dword [esp]
+		-add esp, 4
+Functions
+	-Can write functions for C and call functions for C
+	-Call=Push EIP (instruction pointer onto stack) performs jump
+	-ret= return. this is short for above
+	-perserve stack using base point, ebp
+		-ebp holds where the top of stack was 
+		-call before ret
+		-then mov esp, ebp, affectivly deallocated space
+		-to perserve value of ebp, push to stack first and pop ebp back before return

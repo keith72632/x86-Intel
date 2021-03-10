@@ -50,6 +50,7 @@ The Stack
 	-pop takes from top
 	-the stack is just an array
 	-ESP is stack pointer
+	-EBP is a base pointer used to presevre locations on the stack
 	-stack pointer starts at high address and moves down with pushes
 	-when pushed, ESP decreased by 4
 	-sub 4 from esp will move stack pointer one address
@@ -69,3 +70,11 @@ Functions
 		-call before ret
 		-then mov esp, ebp, affectivly deallocated space
 		-to perserve value of ebp, push to stack first and pop ebp back before return
+	-ALWAYS PUSH EBP WHEN ENTERING FUNCTION AND POP WHEN EXITING
+		-push is prologue and pop is epiloqgue
+C Functions
+	-global main takes the place of start
+	-extern printf brings in C function
+	-assemble like normal, but link with gcc
+		-$gcc -m32 OBJECT.FILE -o EX.FILE
+***Caller who puts arguments onto stack must remove them

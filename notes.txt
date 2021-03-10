@@ -78,3 +78,10 @@ C Functions
 	-assemble like normal, but link with gcc
 		-$gcc -m32 OBJECT.FILE -o EX.FILE
 ***Caller who puts arguments onto stack must remove them
+Creating a C function
+	-create a function in asm and assemble an object file like normal
+	-create a header file and add function. list system arguments
+	-include header file in C program
+	-compile C file like:
+		-$gcc -m32 <asm_object_file> <C file> -o <exectuable>
+
